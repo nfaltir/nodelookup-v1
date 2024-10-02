@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% if page_title %}
+    <title>{{page_title}}</title>
+    {% else %}
+    <title>NEEDS TITLE</title>
+    {% endif %}
+
+    <!-- Load static files -->
+    {% load static %}
+
+    <!-- Link to CSS file -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+  <body>
+    <header>
+      <!-- navbar goes here -->
+      <nav class="bg-gray-100">
+        <div class="max-w-6xl mx-auto px-4">
+          <div class="flex justify-between">
+            <div class="flex space-x-4">
+              <!-- logo -->
+              <div>
+                <a
+                  href="{% url 'home' %}"
+                  class="flex items-center py-5 px-2 text-gray-700 hover:text-gray-900"
+                >
+                <img class="h-12 w-12 mr-4 rounded-full object-cover" src="{% static 'imgs/logo.png' %}" alt="Logo">
+
+                
+                  <span class="font-bold">Nodelookup</span>
+                </a>
+              </div>
+
+              <!-- primary nav -->
+              <div class="hidden md:flex items-center space-x-1">
+                <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900"
+                  >Features</a
+                >
+                <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900"
+                  >Pricing</a
+                >
+              </div>
+            </div>
+
+            <!-- secondary nav -->
+            <div class="hidden md:flex items-center space-x-1">
+              {% if user.is_authenticated %}
+              <span title="user verified" class="material-symbols-outlined font-bold text-emerald-500 text-xl align-middle">
+                verified_user
+            </span>
+              <a href="" class="py-5 px-3">  {{user.username}}</a>
+              <a
+                href="{% url 'logout' %}"
+                class="py-2 px-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300"
+                >Logout</a
+              >
+              {% else %}
+              <a href="{% url 'login' %}" class="py-5 px-3">Login</a>
+              <a
+                href="{% url 'register' %}"
+                class="py-2 px-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300"
+                >Signup</a
+              >
+              {% endif %}
+            </div>
+
+            <!-- mobile button goes here -->
+            <div class="md:hidden flex items-center">
+              <button class="mobile-menu-button">
+                <svg
+                  class="w-6 h-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- mobile menu -->
+        
+        <div class="mobile-menu hidden md:hidden bg-white shadow-lg rounded-lg mt-2 divide-y divide-gray-200">
+          {% if user.is_authenticated %}
+            <a href="#" class="block py-3 px-5 text-sm text-gray-700 hover:bg-amber-200 flex items-center space-x-2">
+              <span class="material-symbols-outlined text-indigo-500">person</span>
+              <span>{{ user.username }}</span>
+            </a>
+            <a href="{% url 'logout' %}" class="block py-3 px-5 text-sm text-gray-700 hover:bg-amber-200 flex items-center space-x-2">
+              <span class="material-symbols-outlined text-red-500">logout</span>
+              <span>Logout</span>
+            </a>
+            <a href="#" class="block py-3 px-5 text-sm text-gray-700 hover:bg-amber-200">
+              Product
+            </a>
+            <a href="#" class="block py-3 px-5 text-sm text-gray-700 hover:bg-amber-200">
+              Pricing
+            </a>
+          {% else %}
+            <a href="{% url 'login' %}" class="block py-3 px-5 text-sm text-gray-700 hover:bg-amber-200 flex items-center space-x-2">
+              <span class="material-symbols-outlined text-indigo-500">lock</span>
+              <span>Login</span>
+            </a>
+            <a href="{% url 'register' %}" class="block py-3 px-5 text-sm text-gray-700 hover:bg-amber-200">
+              Register
+            </a>
+            <a href="#" class="block py-3 px-5 text-sm text-gray-700 hover:bg-amber-200">
+              Product
+            </a>
+            <a href="#" class="block py-3 px-5 text-sm text-gray-700 hover:bg-amber-200">
+              Pricing
+            </a>
+          {% endif %}
+        </div>
+        
+      </nav>
+    </header>
+
+    <main>
+      {% block content %}
+      <!-- Page-specific content goes here -->
+      {% endblock %}
+    </main>
+
+    <footer
+      class="w-full text-center bg-gray-100 text-dark py-4 absolute bottom-0 left-0"
+    >
+      <p>&copy; 2024 Nodelookup</p>
+    </footer>
+
+    <script src="{% static 'js/nav.js' %}"></script>
+  </body>
+</html>
