@@ -58,7 +58,7 @@
               <span title="user verified" class="material-symbols-outlined font-bold text-emerald-500 text-xl align-middle">
                 verified_user
             </span>
-              <a href="" class="py-5 px-3">  {{user.username}}</a>
+              <a href="{% url 'dashboard' %}" class="py-5 px-3">  {{user.username}}</a>
               <a
                 href="{% url 'logout' %}"
                 class="py-2 px-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300"
@@ -140,11 +140,7 @@
       {% endblock %}
     </main>
 
-    <footer
-      class="w-full text-center bg-gray-100 text-dark py-4 absolute bottom-0 left-0"
-    >
-      <p>&copy; 2024 Nodelookup</p>
-    </footer>
+   
 
     <script src="{% static 'js/nav.js' %}"></script>
   </body>

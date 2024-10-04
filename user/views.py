@@ -48,7 +48,7 @@ def login_view(request):
             
             if user is not None:
                 login(request, user)
-                return redirect('home')  # Redirect to the home page after login
+                return redirect('dashboard')  # Redirect to the home page after login
             else:
                 form.add_error(None, "Invalid username or password")  # Add a non-field error
     else:
