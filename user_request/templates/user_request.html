@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="max-w-4xl mx-auto py-12">
+    <h1 class="text-2xl font-bold mb-6">Submit a Request for Research</h1>
+    
+    <form method="POST" class="space-y-6">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg">
+            Submit Request
+        </button>
+    </form>
+
+    <div class="mt-8">
+        <h2 class="text-xl font-semibold">Suggested Questions</h2>
+        <ul class="list-disc pl-5 space-y-2 mt-4">
+            {% for question in recommended_questions %}
+                <li>{{ question }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+
+{% endblock %}
