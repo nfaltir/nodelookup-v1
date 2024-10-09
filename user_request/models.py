@@ -26,6 +26,9 @@ class UserRequest(models.Model):
     specific_questions = models.TextField()
     status = models.CharField(max_length=50, choices=STATUS_CHOICES, default='Pending')
     created_at = models.DateTimeField(auto_now_add=True)
+    # New field for admin to upload a PDF report
+    report_file = models.FileField(upload_to='reports/', blank=True, null=True, help_text="Upload the report in PDF format (admin only).")
+
 
     def __str__(self):
         return f"{self.user.username}'s Request - {self.channel_name}"

@@ -105,7 +105,7 @@
         {% for request in user_requests %}  <!-- Assuming you have a context variable named user_requests -->
             <li class="flex justify-between items-center p-4 bg-gray-100 rounded-lg shadow-sm">
             <div class="flex flex-col">
-                <span class="text-gray-800 font-medium">Request ID: {{ request.id }}</span>
+                <span class="text-gray-800 font-medium">Request ID: {{ request.id }} <a class="underline text-blue-500" href="{% url 'request-details' request.id %}">view</a></span>
                 <span class="text-gray-600">Submitted on: {{ request.created_at|date:"F j, Y" }}</span>  <!-- Date formatting -->
             </div>
             <span class="font-semibold {{ request.status_class }}">{{ request.status }}</span>  <!-- Add a class for status styling -->

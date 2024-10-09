@@ -1,9 +1,139 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<!-- content goes here -->
-<div class="py-32 text-center">
-    <h2 class="font-extrabold text-5xl">Welcome to Nodelookup</h2>
-  </div>
+
+
+<!-- Hero Section -->
+<section class="py-32 text-center bg-gradient-to-r from-green-400 to-amber-200 text-white">
+    <h1 class="font-extrabold text-5xl mb-4">Unlock Powerful Insights for Your YouTube Channel</h1>
+    <p class="text-lg font-light mb-8">Track performance, analyze trends, and grow with comprehensive analytics.</p>
+    <a href="{% url 'register' %}" class="bg-white text-gray-600 px-6 py-3 rounded-md text-lg font-semibold hover:bg-green-100">
+        Get Started for Free
+    </a>
+</section>
+
+<!-- Features Section -->
+<section class="py-32 bg-gray-50">
+    <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-bold text-gray-800 mb-12">Key Features</h2>
+        <div class="grid md:grid-cols-3 gap-10">
+            <!-- Feature 1 -->
+            <div class="p-6 bg-white shadow-md rounded-lg">
+                <span class="material-symbols-outlined text-indigo-600 text-5xl mb-4">analytics</span>
+                <h3 class="text-xl font-semibold text-gray-700 mb-2">Comprehensive Channel Metrics</h3>
+                <p class="text-gray-600">Track views, watch time, subscriber growth, and more.</p>
+            </div>
+            <!-- Feature 2 -->
+            <div class="p-6 bg-white shadow-md rounded-lg">
+                <span class="material-symbols-outlined text-indigo-600 text-5xl mb-4">compare</span>
+                <h3 class="text-xl font-semibold text-gray-700 mb-2">Competitor Analysis</h3>
+                <p class="text-gray-600">Benchmark your channel against top competitors.</p>
+            </div>
+            <!-- Feature 3 -->
+            <div class="p-6 bg-white shadow-md rounded-lg">
+                <span class="material-symbols-outlined text-indigo-600 text-5xl mb-4">insights</span>
+                <h3 class="text-xl font-semibold text-gray-700 mb-2">Audience Insights</h3>
+                <p class="text-gray-600">Understand demographics, behavior, and interests of your audience.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="py-32 bg-white">
+    <div class="container mx-auto text-center items-center">
+        <h2 class="text-3xl font-bold text-gray-800 mb-12">Why Choose Nodelookup?</h2>
+        <div class="grid md:grid-cols-2 gap-10">
+            <!-- Benefit 1 -->
+            <div class="flex items-center justify-center space-x-4">
+                
+                <div>
+                  <span class="material-symbols-outlined text-indigo-600 text-5xl">update</span>
+                    <h3 class="text-xl font-semibold text-gray-700">Real-Time Updates</h3>
+                    <p class="text-gray-600">Stay informed with real-time metrics for quick decision-making.</p>
+                </div>
+            </div>
+            <!-- Benefit 2 -->
+            <div class="flex items-center justify-center space-x-4">
+                
+                <div>
+                  <span class="material-symbols-outlined text-indigo-600 text-5xl">description</span>
+                    <h3 class="text-xl font-semibold text-gray-700">Custom Reports</h3>
+                    <p class="text-gray-600">Generate personalized, in-depth reports to meet your unique needs.</p>
+                </div>
+            </div>
+            <!-- Benefit 3 -->
+            <div class="flex items-center justify-center space-x-4">
+                
+                <div>
+                  <span class="material-symbols-outlined text-indigo-600 text-5xl">visibility</span>
+                    <h3 class="text-xl font-semibold text-gray-700">Actionable Insights</h3>
+                    <p class="text-gray-600">Take data-driven actions to improve your YouTube strategy.</p>
+                </div>
+            </div>
+            <!-- Benefit 4 -->
+            <div class="flex items-center justify-center space-x-4">
+                
+                <div>
+                  <span class="material-symbols-outlined text-indigo-600 text-5xl">trending_up</span>
+                    <h3 class="text-xl font-semibold text-gray-700">Growth Focused</h3>
+                    <p class="text-gray-600">Get recommendations that help drive channel growth.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="py-32 bg-gray-50 text-dark">
+    <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-12">How It Works</h2>
+        <div class="grid md:grid-cols-4 gap-10">
+            <!-- Step 1 -->
+            <div>
+                <div class="mb-4">
+                    <span class="material-symbols-outlined text-gray-700 text-5xl">person_add</span>
+                </div>
+                <h3 class="text-xl font-semibold">Sign Up</h3>
+                <p class="text-gray-500">Create your free account in just a few clicks.</p>
+            </div>
+            <!-- Step 2 -->
+            <div>
+                <div class="mb-4">
+                    <span class="material-symbols-outlined text-gray-700 text-5xl">link</span>
+                </div>
+                <h3 class="text-xl font-semibold">Connect Channel</h3>
+                <p class="text-gray-500">Sync your YouTube account to start tracking.</p>
+            </div>
+            <!-- Step 3 -->
+            <div>
+                <div class="mb-4">
+                    <span class="material-symbols-outlined text-gray-700 text-5xl">dashboard</span>
+                </div>
+                <h3 class="text-xl font-semibold">View Analytics</h3>
+                <p class="text-gray-500">Access in-depth metrics and reports instantly.</p>
+            </div>
+            <!-- Step 4 -->
+            <div>
+                <div class="mb-4">
+                    <span class="material-symbols-outlined text-gray-700 text-5xl">download</span>
+                </div>
+                <h3 class="text-xl font-semibold">Download Reports</h3>
+                <p class="text-gray-500">Export customized reports tailored to your needs.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="py-32 bg-gray-500 text-white text-center">
+    <h2 class="text-3xl font-bold mb-6">Start Tracking Your Channel's Growth Today!</h2>
+    <a href="{% url 'register' %}" class="bg-indigo-600 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-indigo-500">
+        Sign Up for Free
+    </a>
+</section>
+
+
+
 
 {% endblock %}

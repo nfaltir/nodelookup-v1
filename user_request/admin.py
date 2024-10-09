@@ -11,4 +11,12 @@ class UserRequestAdmin(admin.ModelAdmin):
             return ['status']
         return []
 
+    # Limit report_file field visibility to admins only
+    def get_fields(self, request, obj=None):
+        fields = super().get_fields(request, obj)
+        if not request.user.is_staff:
+            # Remove the 'report_file' field from non-admin users
+            fields.remove('report_file')
+        return fields
+
 admin.site.register(UserRequest, UserRequestAdmin)
