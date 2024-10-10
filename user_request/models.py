@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 class UserRequest(models.Model):
     INDUSTRY_CHOICES = [
@@ -28,7 +29,16 @@ class UserRequest(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     # New field for admin to upload a PDF report
     report_file = models.FileField(upload_to='reports/', blank=True, null=True, help_text="Upload the report in PDF format (admin only).")
+    # New field for the timestamp when the status is updated to Completed
+    completed_at = models.DateTimeField(blank=True, null=True)
 
+    def save(self, *args, **kwargs):
+        # Automatically set completed_at if status is updated to 'Completed'
+        if self.status == 'Completed' and not self.completed_at:
+            self.completed_at = timezone.now()
+        elif self.status != 'Completed':
+            self.completed_at = None  # Reset if status is changed to anything else
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.user.username}'s Request - {self.channel_name}"

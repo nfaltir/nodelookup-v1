@@ -1,47 +1,59 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <div class="container mx-auto mt-12 p-6">
-    <h1 class="text-3xl font-semibold text-gray-700 mb-6">
-        <span class="capitalize font-bold text-dark tracking-wide">{{ user.username }}'s</span> Requests
-    </h1>
+  <h1 class="text-3xl font-semibold text-gray-700 mb-6">
+    <span class="capitalize font-bold text-dark tracking-wide"
+      >{{ user.username }}'s</span
+    >
+    Requests
+  </h1>
 
-    <!-- Request Detail Card -->
-    <div class="bg-white p-6 rounded-lg shadow-lg">
-        <!-- Channel Name and Industry -->
-        <div class="flex items-center justify-between mb-4">
-            <h2 class="text-xl font-semibold text-gray-800">{{ request_detail.channel_name }}</h2>
-            <span class="text-sm font-medium text-gray-500">{{ request_detail.channel_industry }}</span>
-        </div>
-
-        <!-- Status -->
-        <div class="flex items-center mb-4">
-            <span class="material-symbols-outlined mr-2 text-gray-500">info</span>
-            <p class="text-gray-600">Status: 
-                <span class="{{ request_detail.status_class }}">
-                    {{ request_detail.get_status_display }}
-                </span>
-            </p>
-        </div>
-
-        <!-- Created Date -->
-        <div class="flex items-center mb-4">
-            <span class="material-symbols-outlined mr-2 text-gray-500">calendar_today</span>
-            <p class="text-gray-600">Submitted on: {{ request_detail.created_at|date:"M d, Y" }}</p>
-        </div>
-
-        <!-- PDF Report (Only for completed requests) -->
-        {% if request_detail.status == 'Completed' and request_detail.report_file %}
-            <div class="mt-4 border-t pt-4">
-                <p class="text-green-600 text-lg font-semibold">Your report is ready:</p>
-                <a href="{{ request_detail.report_file.url }}" 
-                   class="text-blue-500 underline flex items-center mt-2">
-                    <span class="material-symbols-outlined mr-2">download</span>
-                    Download Report (PDF)
-                </a>
-            </div>
-        {% endif %}
-        
+  <!-- Request Detail Card -->
+  <div class="bg-white p-6 rounded-lg shadow-lg">
+    <!-- Channel Name and Industry -->
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="text-xl font-semibold text-gray-800">
+        {{ request_detail.channel_name }}
+      </h2>
+      <span class="text-sm font-medium text-gray-500"
+        >{{ request_detail.channel_industry }}</span
+      >
     </div>
+
+    <!-- Status -->
+    <div class="flex items-center mb-4">
+      <span class="material-symbols-outlined mr-2 text-gray-500">info</span>
+      <p class="text-gray-600">
+        Status:
+        <span class="{{ request_detail.status_class }}">
+          {{ request_detail.get_status_display }}
+        </span>
+      </p>
+    </div>
+
+    <!-- Created Date -->
+    <div class="flex items-center mb-4">
+      <span class="material-symbols-outlined mr-2 text-gray-500"
+        >calendar_today</span
+      >
+      <p class="text-gray-600">
+        Submitted on: {{ request_detail.created_at|date:"M d, Y" }}
+      </p>
+    </div>
+  
+
+    <!-- PDF Report (Only for completed requests) -->
+    {% if request_detail.status == 'Completed' and request_detail.report_file %}
+    <div class="mt-4 border-t pt-4">
+      <p class="text-green-600 text-lg font-semibold">Your report is ready:</p>
+      <a
+        href="{{ request_detail.report_file.url }}"
+        class="text-blue-500 underline flex items-center mt-2"
+      >
+        <span class="material-symbols-outlined mr-2">download</span>
+        Download Report (PDF)
+      </a>
+    </div>
+    {% endif %}
+  </div>
 </div>
 {% endblock %}
