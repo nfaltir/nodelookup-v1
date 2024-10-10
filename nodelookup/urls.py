@@ -10,6 +10,7 @@ urlpatterns = [
     path('accounts/', include('user.urls')),
     path('dashboard/', include('dashboard.urls')),
     path('user-request/', include('user_request.urls')),
+    path('user-communications/', include('communications.urls')),
 ]
 
 if settings.DEBUG:

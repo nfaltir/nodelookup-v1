@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'user',
     'dashboard',
     'user_request',
+    'communications'
 ]
 
 MIDDLEWARE = [

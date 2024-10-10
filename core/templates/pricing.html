@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="max-w-6xl mx-auto px-4 py-16 mt-8">
+    <h1 class="text-4xl font-bold mb-12 text-center text-gray-800">Our Services & Pricing</h1>
+
+    <!-- Social Media Analytics Report -->
+    <div class="bg-white shadow-lg rounded-lg p-8 mb-10 border border-gray-300 hover:shadow-2xl transition-shadow duration-300">
+        <div class="flex items-center mb-4">
+            <span class="material-symbols-outlined text-green-500 text-4xl mr-4">
+                analytics
+            </span>
+            <h2 class="text-2xl font-semibold text-gray-800">Social Media Analytics Report</h2>
+        </div>
+        <p class="text-gray-700 mb-6">Get an in-depth analysis of your social media performance, including audience insights, engagement metrics, and actionable recommendations for growth.</p>
+        <div class="flex items-center justify-between">
+            <p class="text-3xl font-bold text-green-500">$50</p>
+            <a href="#" class="bg-green-500 text-white py-2 px-6 rounded-full hover:bg-green-600 transition-colors duration-200 flex items-center">
+                <span class="material-symbols-outlined text-white mr-2">
+                    shopping_cart
+                </span>
+                Order Now
+            </a>
+        </div>
+    </div>
+
+    <!-- Steps to Purchase -->
+    <div class="bg-white shadow-lg rounded-lg p-8 border border-gray-300">
+        <h2 class="text-3xl font-semibold text-center mb-8 text-gray-800">How It Works</h2>
+        
+        <div class="space-y-6">
+            <!-- Step 1 -->
+            <div class="flex items-center">
+                <span class="material-symbols-outlined text-blue-500 text-3xl mr-4">
+                    person_add
+                </span>
+                <p class="text-lg text-gray-700">
+                    <a class="underline" href="{% url 'register' %}">Create an account if you don’t have one</a>
+                </p>
+            </div>
+            
+            <!-- Step 2 -->
+            <div class="flex items-center">
+                <span class="material-symbols-outlined text-blue-500 text-3xl mr-4">
+                    request_quote
+                </span>
+                <p class="text-lg text-gray-700">Make an analytics request</p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="flex items-center">
+                <span class="material-symbols-outlined text-blue-500 text-3xl mr-4">
+                    visibility
+                </span>
+                <p class="text-lg text-gray-700">An analyst will view your request and update the status once analytics report is complete</p>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="flex items-center">
+                <span class="material-symbols-outlined text-blue-500 text-3xl mr-4">
+                    mail
+                </span>
+                <p class="text-lg text-gray-700">Once the status is complete, you will receive an email</p>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="flex items-center">
+                <span class="material-symbols-outlined text-blue-500 text-3xl mr-4">
+                    credit_card
+                </span>
+                <p class="text-lg text-gray-700">Pay for the report</p>
+            </div>
+
+            <!-- Step 6 -->
+            <div class="flex items-center">
+                <span class="material-symbols-outlined text-blue-500 text-3xl mr-4">
+                    download
+                </span>
+                <p class="text-lg text-gray-700">View or download the report</p>
+            </div>
+        </div>
+
+        <!-- Gallery Link -->
+        <div class="mt-8 text-center">
+            <a href="/gallery" class="text-blue-600 hover:underline text-lg">View our gallery of free analytics reports to see what you're paying for</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

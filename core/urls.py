@@ -1,7 +1,8 @@
 from django.urls import path
-from . import views  # Assuming you have views in the same app
+from . import views  
 
 urlpatterns = [
-    # Example route
-    path('', views.home, name='home'),  # Replace with your actual views
+    path('', views.home, name='home'),  
+    path('pricing/', views.pricing, name='pricing'),
+    path('gallery/', views.gallery, name='gallery'),
 ]

@@ -16,11 +16,11 @@
       </li>
       <li>
         <a
-          href="#"
+          href="{% url 'gallery' %}"
           class="flex items-center py-2 px-4 rounded hover:bg-gray-200"
         >
           <span class="material-symbols-outlined mr-2">photo_library</span>
-          Research Gallery
+          Analytics Gallery
         </a>
       </li>
       <li>
@@ -41,9 +41,11 @@
           Request Status
         </a>
       </li>
+     
+      
       <li>
         <a
-          href="#"
+          href="{% url 'pricing' %}"
           class="flex items-center py-2 px-4 rounded hover:bg-gray-200"
         >
           <span class="material-symbols-outlined mr-2">price_change</span>
@@ -61,11 +63,20 @@
       </li>
       <li>
         <a
-          href="#"
+          href="{% url 'send-message' %}"
           class="flex items-center py-2 px-4 rounded hover:bg-gray-200"
         >
           <span class="material-symbols-outlined mr-2">support_agent</span>
           Contact Support
+        </a>
+      </li>
+      <li>
+        <a
+          href="{% url 'inbox' %}"
+          class="flex items-center py-2 px-4 rounded hover:bg-gray-200"
+        >
+          <span class="material-symbols-outlined mr-2">email</span>
+          Inbox
         </a>
       </li>
     </ul>
