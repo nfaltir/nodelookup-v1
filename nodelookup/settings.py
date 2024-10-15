@@ -125,4 +125,17 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# FORGOT PASSPORT DEVELOPMENT
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+
+"""
+#FOR PRODUCTION FORGOT EMAIL LOGIN
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.your-email-provider.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'your-email@example.com'
+EMAIL_HOST_PASSWORD = 'your-email-password'
+
+"""
