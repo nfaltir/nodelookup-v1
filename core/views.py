@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from .models import GalleryReport
+
 
 # Create your views here.
 def home(request):
@@ -18,14 +20,9 @@ def pricing(request):
 
 def gallery(request):
     page_title = "Nodelookup | Demo Gallery"
-    reports = [
-        {"channel": "MrBeast", "industry": "Gaming & Entertainment"},
-        {"channel": "AliA", "industry": "Gaming"},
-        {"channel": "Philip DeFranco", "industry": "News"},
-        {"channel": "Gary Vaynerchuk", "industry": "Business"},
-    ]
+    gallery_reports = GalleryReport.objects.all()
     context = {
         "page_title":page_title,
-        "reports":reports
+        "gallery_reports":gallery_reports
     }
     return render(request, 'gallery.html', context)

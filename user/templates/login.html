@@ -4,24 +4,41 @@
     <div class="w-full bg-gray-50 max-w-md p-8 shadow-lg rounded-lg">
         <!-- Aligning the icon and h1 using flex -->
         <div class="flex items-center justify-center mb-6">
-            <span class="material-symbols-outlined text-3xl text-gray-700">shield</span>
+            <span class="material-symbols-outlined text-3xl text-gray-700 font-bold">lock</span>
             <h1 class="text-3xl font-semibold text-gray-700 ml-2">Login</h1>
         </div>
-        
+
         <form action="" method="POST" class="space-y-4">
             {% csrf_token %}
+            
+            <!-- Display non-field errors (general form errors) -->
+            {% if form.non_field_errors %}
+                <div class="text-red-600">
+                    {{ form.non_field_errors }}
+                </div>
+            {% endif %}
 
-            <!-- Username Field with Icon -->
+            <!-- Username Field with Icon and Error Messages -->
             <div class="flex items-center border border-gray-300 rounded-lg">
-                <span class="material-symbols-outlined p-2 text-amber-500">person</span>
+                <span class="material-symbols-outlined font-bold p-2 text-gray-500">person</span>
                 {{ form.username }}
             </div>
+            {% if form.username.errors %}
+                <div class="text-red-600 text-sm">
+                    {{ form.username.errors }}
+                </div>
+            {% endif %}
 
-            <!-- Password Field with Icon -->
+            <!-- Password Field with Icon and Error Messages -->
             <div class="flex items-center border border-gray-300 rounded-lg">
-                <span class="material-symbols-outlined p-2 text-gray-500">lock</span>
+                <span class="material-symbols-outlined font-bold p-2 text-gray-500">key</span>
                 {{ form.password }}
             </div>
+            {% if form.password.errors %}
+                <div class="text-red-600 text-sm">
+                    {{ form.password.errors }}
+                </div>
+            {% endif %}
 
             <!-- Links for "Don't have an account?" and "Forgot Password?" -->
             <div class="flex justify-between text-sm text-gray-600 mt-4">

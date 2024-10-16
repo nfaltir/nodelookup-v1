@@ -45,13 +45,13 @@ class LoginForm(forms.Form):
     username = forms.CharField(
         max_length=150,
         widget=forms.TextInput(attrs={
-            'class': 'block w-full p-2 rounded-lg focus:outline-none focus:ring focus:ring-blue-500',
+            'class': 'block w-full p-2 rounded-sm border border-gray-200 focus:outline-none focus:ring focus:ring-blue-500',
             'placeholder': 'Username'
         })
     )
     password = forms.CharField(
         widget=forms.PasswordInput(attrs={
-            'class': 'block w-full p-2 rounded-lg focus:outline-none focus:ring focus:ring-blue-500',
+            'class': 'block w-full p-2 rounded-sm focus:outline-none focus:ring focus:ring-blue-500',
             'placeholder': 'Password'
         })
     )
