@@ -11,7 +11,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12">
         {% for report in gallery_reports %}
-        <div class="bg-white shadow-lg rounded-lg border border-gray-200 hover:shadow-2xl transition-shadow duration-300">
+        <div class="bg-white shadow-lg  rounded-lg border border-gray-200 hover:shadow-2xl transition-shadow duration-300">
             <!-- Image as Background -->
             {% if report.channel_image %}
                 <div class="h-[400px] bg-cover bg-center rounded-t-lg" style="background-image: url('{{ report.channel_image.url }}');"></div>
@@ -28,7 +28,7 @@
                 <p class="text-sm text-gray-500 mb-4">Channel Link: <a href="{{ report.channel_link }}" target="_blank" class="text-blue-500 underline">{{ report.channel_link }}</a></p>
 
                 <div class="flex justify-center items-center p-4 gap-4">
-                    <a href="{{ report.pdf_file.url }}" target="_blank" class="inline-flex items-center bg-slate-400 text-white py-2 px-5 rounded-full hover:bg-blue-700 transition-colors">
+                    <a href="{{ report.pdf_file.url }}" target="_blank" class="inline-flex items-center bg-slate-400 text-white py-2 px-5 rounded-full hover:bg-slate-600 transition-colors">
                         <span class="material-symbols-outlined mr-2">download</span> Download Report
                     </a>
                    

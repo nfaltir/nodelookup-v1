@@ -14,7 +14,7 @@
     {% load static %}
 
     <!-- Link to CSS file -->
-    
+    <link rel="icon" href="{% static 'imgs/logo.svg' %}" type="image/x-icon">
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -37,7 +37,7 @@
                   href="{% url 'home' %}"
                   class="flex items-center py-5 px-2 text-gray-700 hover:text-gray-900"
                 >
-                <img class="h-12 w-12 mr-4 rounded-full object-cover" src="{% static 'imgs/logo.png' %}" alt="Logo">
+                <img class="h-12 w-12 mr-4 rounded-full object-cover" src="{% static 'imgs/logo.svg' %}" alt="Logo">
 
                 
                   <span class="font-bold">Nodelookup</span>
