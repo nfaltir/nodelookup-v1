@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.contrib.auth import login
 from django.contrib.auth.models import User
 from .forms import RegistrationForm, LoginForm
@@ -21,10 +22,12 @@ def register_view(request):
             # Create the user manually
             user = User.objects.create_user(username=username, email=email, password=password)
             user.save()
+            messages.success(request, 'Your account has been successfully created. Please log in.')
+
             
             # Log the user in immediately after registration
             login(request, user)
-            return redirect("home")
+            return redirect("login")
     else:
         form = RegistrationForm()  # Use this form for GET requests
 
@@ -37,7 +40,7 @@ def register_view(request):
 
 #LOGIN
 def login_view(request):
-    page_title = "Login"
+    page_title = "Login | Nodelookup"
     
     if request.method == "POST":
         form = LoginForm(data=request.POST)  # Only pass data=request.POST, not request itself
@@ -63,4 +66,5 @@ def login_view(request):
 #LOGOUT
 def logout_view(request):
     logout(request)
+    messages.success(request, 'You have successfully logged out.')
     return redirect('login')
