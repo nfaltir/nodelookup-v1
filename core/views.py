@@ -26,3 +26,15 @@ def gallery(request):
         "gallery_reports":gallery_reports
     }
     return render(request, 'gallery.html', context)
+
+
+
+
+def product(request):
+    page_title = "Product | Nodelookup"
+    
+    context = {
+        "page_title":page_title,
+        
+    }
+    return render(request, 'product.html', context)

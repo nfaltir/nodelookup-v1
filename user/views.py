@@ -10,7 +10,7 @@ from django.contrib.auth import login,logout, authenticate
 
 # REGISTER
 def register_view(request):
-    page_title = "Register"
+    page_title = "Register | Nodelookup"
     if request.method == "POST":
         form = RegistrationForm(request.POST)
         if form.is_valid():
@@ -29,7 +29,7 @@ def register_view(request):
         form = RegistrationForm()  # Use this form for GET requests
 
     context = {
-        "page_tile": page_title,
+        "page_title": page_title,
         "form": form,
     }
     return render(request, "register.html", context)

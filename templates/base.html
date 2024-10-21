@@ -27,7 +27,7 @@
   <body>
     <header>
       <!-- navbar goes here -->
-      <nav class="bg-gray-100 shadow-md">
+      <nav class="bg-gray-100 shadow-md mb-2">
         <div class="max-w-6xl mx-auto px-4">
           <div class="flex justify-between">
             <div class="flex space-x-4">
@@ -51,8 +51,8 @@
                 <a href="/admin" class="py-5 px-3 text-gray-700 hover:text-gray-900"
                   >Admin</a
                 >
-                <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900"
-                  >Features</a
+                <a href="{% url 'product' %}" class="py-5 px-3 text-gray-700 hover:text-gray-900"
+                  >Product</a
                 >
                 <a href="{% url 'pricing' %}" class="py-5 px-3 text-gray-700 hover:text-gray-900"
                   >Pricing</a
@@ -61,8 +61,8 @@
                 >Demo Gallery</a
               >
                 {% else %}
-                <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900"
-                  >Features</a
+                <a href="{% url 'product' %}" class="py-5 px-3 text-gray-700 hover:text-gray-900"
+                  >Product</a
                 >
                 <a href="{% url 'pricing' %}" class="py-5 px-3 text-gray-700 hover:text-gray-900"
                   >Pricing</a

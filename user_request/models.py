@@ -41,7 +41,7 @@ class UserRequest(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f"{self.user.username}'s Request - {self.channel_name}"
+        return f"{self.user.username.capitalize()}'s research request for {self.channel_name} Youtube Channel ID: {self.id}\n"
 
     @property
     def status_class(self):

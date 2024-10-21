@@ -1,8 +1,22 @@
 from django.contrib import admin
 from .models import UserRequest
 
+client_desc = "Client research request form data"
+admin_desc = "Staff request submissions"
+
 class UserRequestAdmin(admin.ModelAdmin):
-    list_display = ('user', 'channel_name', 'status', 'created_at')
+
+    fieldsets = (
+        ('Client',{
+            'fields':('user', 'channel_name', 'channel_industry','channel_link', 'channel_id','specific_questions'),
+            'description': '%s' % client_desc,
+        }),
+        ('Admin', {
+            'fields':('status', 'report_file', 'completed_at',),
+            'description': '%s' % admin_desc,
+        })
+    )
+    list_display = ('user', 'channel_name', 'channel_industry', 'status','channel_id', 'created_at')
     list_filter = ('status', 'channel_industry')
     search_fields = ('channel_name', 'channel_id')
 
