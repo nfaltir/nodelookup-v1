@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from django.templatetags.static import static
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,6 +21,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'unfold',
+    'unfold.contrib.import_export',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -31,7 +34,9 @@ INSTALLED_APPS = [
     'user',
     'dashboard',
     'user_request',
-    'communications'
+    'communications',
+
+    'import_export',
 ]
 
 MIDDLEWARE = [
@@ -142,7 +147,17 @@ EMAIL_HOST_PASSWORD = 'your-email-password'
 
 """
 
-# settings.py
+#UNFOLD ADMIN THEME
+
+UNFOLD = {
+    "SITE_TITLE": "Nodelookup Admin Panel",
+    "SITE_HEADER": "Nodelookup",
+    "SITE_ICON":{
+        "light": lambda request: static("imgs/logo.svg"),
+        "dark": lambda request: static("imgs/logo.svg"),
+    },
+   
+}
 
 
 

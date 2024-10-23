@@ -1,10 +1,13 @@
 from django.contrib import admin
+from unfold.admin import ModelAdmin
 from .models import UserRequest
+
+from import_export.admin import ImportExportModelAdmin
 
 client_desc = "Client research request form data"
 admin_desc = "Staff request submissions"
 
-class UserRequestAdmin(admin.ModelAdmin):
+class UserRequestAdmin(ModelAdmin):
 
     fieldsets = (
         ('Client',{
