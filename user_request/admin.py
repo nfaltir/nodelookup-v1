@@ -3,12 +3,14 @@ from unfold.admin import ModelAdmin
 from .models import UserRequest
 
 from import_export.admin import ImportExportModelAdmin
+from unfold.contrib.import_export.forms import ExportForm, ImportForm, SelectableFieldsExportForm
 
 client_desc = "Client research request form data"
 admin_desc = "Staff request submissions"
 
-class UserRequestAdmin(ModelAdmin):
+class UserRequestAdmin(ModelAdmin, ImportExportModelAdmin):
 
+    
     fieldsets = (
         ('Client',{
             'fields':('user', 'channel_name', 'channel_industry','channel_link', 'channel_id','specific_questions'),
@@ -22,6 +24,10 @@ class UserRequestAdmin(ModelAdmin):
     list_display = ('user', 'channel_name', 'channel_industry', 'status','channel_id', 'created_at')
     list_filter = ('status', 'channel_industry')
     search_fields = ('channel_name', 'channel_id')
+
+    import_form_class = ImportForm
+    export_form_class = ExportForm
+
 
     def get_readonly_fields(self, request, obj=None):
         if not request.user.is_staff:
