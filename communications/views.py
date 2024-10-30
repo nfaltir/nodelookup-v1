@@ -29,7 +29,7 @@ def send_message(request):
 
 
 def inbox(request):
-    page_title = "User Inbox"
+    page_title = f"{request.user.username}'s Inbox"
     # Fetch messages where the current logged-in user is the sender
     messages = Message.objects.filter(sender=request.user).order_by('-timestamp')
 
